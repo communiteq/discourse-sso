@@ -10,10 +10,10 @@ This plugin makes it possible to sign on to a Discourse forum using an URL.
 
 The URL must contain a `sso` parameter which is built up as follows:
 
-`Base64 (payload ':' signature)`
+`Base64` (`payload` ':' `signature`)
 
-* Where `signature` is SHA256(payload ':' secret)
-* Where `payload` is user ':' timestamp ':' ipaddress
+* Where `signature` is `SHA256`(`payload` ':' `secret`)
+* Where `payload` is `user` ':' `timestamp` ':' `ipaddress`
 * Where `secret` is a secret, only known to Discourse and the application creating the URL.
 
 The secret will be automatically generated and can be found in Admin -> Settings -> SSO Plugin.
@@ -35,15 +35,15 @@ When the URL is received by Discourse, the user is looked up and logged in, prov
 PHP example code
 ----------------
 
- <?php
- 
- $secret = "524c48bfdcaa5172a501a6d0db0bc41a90671544c3c1c37c39a2758a66e724ac";
- 
- $user = 'kalturian';
- $t = time();
- 
- $payload = "{$user}:{$t}:127.0.0.1";
- $hash = hash("sha256", $payload.':'.$secret);
- $value = base64_encode($payload.':'.$hash);
- 
- echo "http://discourse.example.com/?sso=".$value."\n";
+    <?php
+    
+    $secret = "524c48bfdcaa5172a501a6d0db0bc41a90671544c3c1c37c39a2758a66e724ac";
+    
+    $user = 'kalturian';
+    $t = time();
+     
+    $payload = "{$user}:{$t}:127.0.0.1";
+    $hash = hash("sha256", $payload.':'.$secret);
+    $value = base64_encode($payload.':'.$hash);
+    
+    echo "http://discourse.example.com/?sso=".$value."\n";
