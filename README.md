@@ -39,7 +39,7 @@ PHP example code
     
     $secret = "524c48bfdcaa5172a501a6d0db0bc41a90671544c3c1c37c39a2758a66e724ac";
     
-    $user = 'kalturian';
+    $user = 'username';
     $t = time();
      
     $payload = "{$user}:{$t}:127.0.0.1";
