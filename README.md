@@ -48,3 +48,7 @@ PHP example code
     $value = base64_encode($payload.':'.$hash);
     
     echo "http://discourse.example.com/?sso=".$value."\n";
+
+Output:
+
+`http://discourse.example.com/?sso=a2FsdHVyaWFuOjEzOTA5NDI5MTQ6MTI3LjAuMC4xOmM2MDk1MWNkNjkzMWE3YTk2MTBjNDFiMjVmMWNjYjQ1NmRjNmE0YzVkZWE2MDExYTQ2ZTE2MWNlMThkY2NmYzE=`
