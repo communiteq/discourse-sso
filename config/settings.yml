@@ -1,0 +1,4 @@
+discourse_sso:
+  sso_shared_secret:
+    default: ''
+
