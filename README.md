@@ -31,6 +31,7 @@ When the URL is received by Discourse, the user is looked up and logged in, prov
 * The signature is valid
 * The user exists
 * The timestamp does not differ more than 180 seconds from the server time
+* (Currently, the IP address parameter is ignored)
 
 PHP example code
 ----------------
