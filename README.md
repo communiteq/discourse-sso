@@ -31,6 +31,7 @@ When the URL is received by Discourse, the user is looked up and logged in, prov
 * The signature is valid
 * The user exists
 * The timestamp does not differ more than 180 seconds from the server time
+* (Currently, the IP address parameter is ignored)
 
 PHP example code
 ----------------
@@ -47,3 +48,7 @@ PHP example code
     $value = base64_encode($payload.':'.$hash);
     
     echo "http://discourse.example.com/?sso=".$value."\n";
+
+Output:
+
+`http://discourse.example.com/?sso=a2FsdHVyaWFuOjEzOTA5NDI5MTQ6MTI3LjAuMC4xOmM2MDk1MWNkNjkzMWE3YTk2MTBjNDFiMjVmMWNjYjQ1NmRjNmE0YzVkZWE2MDExYTQ2ZTE2MWNlMThkY2NmYzE=`
