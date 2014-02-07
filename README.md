@@ -33,6 +33,19 @@ When the URL is received by Discourse, the user is looked up and logged in, prov
 * The timestamp does not differ more than 180 seconds from the server time
 * (Currently, the IP address parameter is ignored)
 
+Disabling Activation Emails
+---------------------------
+
+Usually this SSO strategy goes hand in hand with users being created by an API client, for instance 
+https://github.com/discoursehosting/discourse-api-php
+
+Creating users using the API still sends an activation email to the user, even if the user is activated by the API.
+To prevent this we have introduced the sso_disable_activationmails setting.
+
+If you enable the sso_disable_activationmails setting you should really disable enable_local_account_create 
+and email_editable. If you don't, people will be able to create accounts without email validation, or change to an incorrect email address.
+
+
 PHP example code
 ----------------
 
