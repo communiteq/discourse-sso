@@ -1,4 +1,5 @@
 
+
 module DiscourseSSO
   module ControllerExtensions
     def self.included(klass)
@@ -52,6 +53,39 @@ module DiscourseSSO
     end
 
   end
+end
+
+after_initialize do
+
+  User.class_eval do
+    alias_method :old_create_email_token, :create_email_token
+    alias_method :old_email_confirmed?, :email_confirmed?
+
+    def active?
+      if SiteSetting.sso_disable_activationmails?
+        true
+      else
+        self.active
+      end
+    end
+  
+    def email_confirmed?
+      if SiteSetting.sso_disable_activationmails?
+        true
+      else
+        old_email_confirmed?
+      end
+    end
+
+    def create_email_token
+      if SiteSetting.sso_disable_activationmails?
+        true
+      else
+        old_create_email_token
+      end
+    end
+  end
+
 end
 
 ActiveSupport.on_load(:action_controller) do

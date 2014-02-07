@@ -1,3 +1,5 @@
 en:
   site_settings:
     sso_shared_secret: 'Shared secret for Single-Sign-On'
+    sso_disable_activationmails: 'Disable activation emails'
+

@@ -1,4 +1,6 @@
 discourse_sso:
   sso_shared_secret:
     default: ''
+  sso_disable_activationmails:
+    default: false
 
