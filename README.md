@@ -3,6 +3,8 @@ discourse-sso
 
 Single Sign-On plugin for Discourse forum
 
+Note: this plugin is deprecated! Discourse has it's own SSO functionality nowadays.
+
 Usage
 -----
 
